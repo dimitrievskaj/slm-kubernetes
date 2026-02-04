@@ -23,6 +23,33 @@ spec:
         imagePullPolicy: Never
         ports:
         - containerPort: 8000
+        env:
+        - name: MODEL_ID
+          value: "EleutherAI/gpt-neo-125M"
+        - name: DEFAULT_MAX_TOKENS
+          value: "50"
+        - name: DEFAULT_TEMPERATURE
+          value: "1.0"
+        - name: DEFAULT_TOP_K
+          value: "50"
+        - name: DEFAULT_TOP_P
+          value: "0.95"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 60
+          periodSeconds: 30
+          timeoutSeconds: 10
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 8000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
         resources:
           requests:
             cpu: "500m"
