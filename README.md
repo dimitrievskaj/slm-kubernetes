@@ -1,6 +1,6 @@
-# llm-kubernetes
+# SLLMs on Kubernetes
 
-Deploy Large Language Models (LLMs) on Kubernetes using FastAPI. This repository provides two deployment options: a standard PyTorch-based API and an ONNX-optimized version for faster inference.
+Deploy Small Large Language Models (SLLMs) on Kubernetes using FastAPI. This repository provides two deployment options: a standard PyTorch-based API and an ONNX-optimized version for faster inference.
 
 ## Features
 
